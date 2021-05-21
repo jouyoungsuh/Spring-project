@@ -21,16 +21,16 @@ public class MemoryUserRepository implements UserRepository{
         return Optional.ofNullable(dataMap.get(id));
     }
     @Override
-    public List<User> findAll() {
-        return new ArrayList<>(dataMap.values());
-    }
-    @Override
     public Optional<User> findByName(String name) {
         return dataMap.values().stream()
                 .filter(user -> user.getName().equals(name))
                 .findAny();
     }
-    public void clearStore() {
+    @Override
+    public List<User> findAll() {
+        return new ArrayList<>(dataMap.values());
+    }
+    public void clearStored() {
         dataMap.clear();
     }
 
