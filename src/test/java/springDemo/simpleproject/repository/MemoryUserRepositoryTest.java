@@ -1,6 +1,7 @@
 package springDemo.simpleproject.repository;
 
 import org.junit.jupiter.api.AfterEach;
+import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
 import springDemo.simpleproject.domain.User;
@@ -10,11 +11,16 @@ import org.assertj.core.api.Assertions;
 import java.util.List;
 
 public class MemoryUserRepositoryTest {
-    MemoryUserRepository repository = new MemoryUserRepository();
+    MemoryUserRepository repository;
+
+    @BeforeEach
+    public void beforeEach(){
+        this.repository = new MemoryUserRepository();
+    }
 
     @AfterEach
     public void afterEach(){
-        repository.clearStored();
+        this.repository.clearStored();
     }
 
     @Test
