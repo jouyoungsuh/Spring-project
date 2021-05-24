@@ -5,17 +5,17 @@ import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import springDemo.simpleproject.domain.User;
-import springDemo.simpleproject.repository.MemoryUserRepository;
+import springDemo.simpleproject.repository.UserRepository;
 
 import static org.junit.jupiter.api.Assertions.*;
 
 class UserServiceTest {
-    MemoryUserRepository userRepository;
+    UserRepository userRepository;
     UserService userService;
 
     @BeforeEach
     public void beforeEach() {
-        this.userRepository = new MemoryUserRepository();
+        this.userRepository = new UserRepository();
         this.userService = new UserService(userRepository);
     }
 

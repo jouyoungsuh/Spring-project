@@ -10,12 +10,12 @@ import springDemo.simpleproject.domain.User;
 import org.assertj.core.api.Assertions;
 import java.util.List;
 
-public class MemoryUserRepositoryTest {
-    MemoryUserRepository repository;
+public class UserRepositoryInterfaceTest {
+    UserRepository repository;
 
     @BeforeEach
     public void beforeEach(){
-        this.repository = new MemoryUserRepository();
+        this.repository = new UserRepository();
     }
 
     @AfterEach

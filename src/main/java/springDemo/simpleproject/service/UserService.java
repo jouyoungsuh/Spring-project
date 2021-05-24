@@ -1,8 +1,8 @@
 package springDemo.simpleproject.service;
 
+import org.springframework.stereotype.Service;
 import springDemo.simpleproject.domain.User;
-import springDemo.simpleproject.repository.MemoryUserRepository;
-import springDemo.simpleproject.repository.UserRepository;
+import springDemo.simpleproject.repository.UserRepositoryInterface;
 
 import java.util.List;
 import java.util.Optional;
@@ -11,9 +11,9 @@ import java.util.Optional;
     This class manages the business logic and the services that the whole project is serving to the user.
  */
 public class UserService {
-    private final UserRepository userRepository;
+    private final UserRepositoryInterface userRepository;
 
-    public UserService(UserRepository userRepository){
+    public UserService(UserRepositoryInterface userRepository) {
         this.userRepository = userRepository;
     }
 

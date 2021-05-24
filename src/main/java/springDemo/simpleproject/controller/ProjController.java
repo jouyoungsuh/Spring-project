@@ -7,7 +7,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 @Controller
-public class projController {
+public class ProjController {
 
     // Note that this maps into the test-template.html in the templates folder under resources folder.
     // This gets the attribute from this controller.
