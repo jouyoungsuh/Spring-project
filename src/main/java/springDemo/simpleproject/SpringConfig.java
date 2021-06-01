@@ -10,24 +10,34 @@ import javax.sql.DataSource;
 
 @Configuration
 public class SpringConfig {
-
-    private final DataSource dataSource;
-    private final EntityManager eManager;
-    public SpringConfig(DataSource dataSource, EntityManager eManager) {
-        this.dataSource = dataSource;
-        this.eManager = eManager;
+    private final UserRepositoryInterface userRepository;
+    public SpringConfig(UserRepositoryInterface memberRepository) {
+        this.userRepository = memberRepository;
     }
-
     @Bean
-    public UserRepositoryInterface userRepository(){
-//        return new UserRepository();
-//        return new UserRepositoryJDBC(dataSource);
-//        return new UserRepositoryJDBCtemplate(dataSource);
-        return new UserRepositoryJPA(eManager);
-    }
-
-    @Bean
-    public UserService userService() {
-        return new UserService(userRepository());
+    public UserService memberService() {
+        return new UserService(userRepository);
     }
 }
+
+
+//    private final DataSource dataSource;
+//    private final EntityManager eManager;
+//    public SpringConfig(DataSource dataSource, EntityManager eManager) {
+//        this.dataSource = dataSource;
+//        this.eManager = eManager;
+//    }
+//
+//    @Bean
+//    public UserRepositoryInterface userRepository(){
+////        return new UserRepository();
+////        return new UserRepositoryJDBC(dataSource);
+////        return new UserRepositoryJDBCtemplate(dataSource);
+//        return new UserRepositoryJPA(eManager);
+//    }
+//
+//    @Bean
+//    public UserService userService() {
+//        return new UserService(userRepository());
+//    }
+
