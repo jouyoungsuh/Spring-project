@@ -1,6 +1,9 @@
 package springDemo.simpleproject.domain;
+import javax.persistence.*;
 
+@Entity
 public class User {
+    @Id @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
     private String name;
     public Integer getId() {

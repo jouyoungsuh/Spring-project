@@ -1,6 +1,7 @@
 package springDemo.simpleproject.service;
 
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 import springDemo.simpleproject.domain.User;
 import springDemo.simpleproject.repository.UserRepositoryInterface;
 
@@ -17,6 +18,7 @@ public class UserService {
         this.userRepository = userRepository;
     }
 
+    @Transactional
     public Integer signUp(User user){
         checkDuplicateUser(user);
         userRepository.save(user);
