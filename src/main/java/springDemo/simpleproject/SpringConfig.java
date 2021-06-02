@@ -2,6 +2,7 @@ package springDemo.simpleproject;
 
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
+import springDemo.simpleproject.aop.TimeTraceAOP;
 import springDemo.simpleproject.repository.*;
 import springDemo.simpleproject.service.UserService;
 
@@ -18,6 +19,12 @@ public class SpringConfig {
     public UserService memberService() {
         return new UserService(userRepository);
     }
+
+    // Add below if not going to use @Component on AOP
+//    @Bean
+//    public TimeTraceAOP tta(){
+//        return new TimeTraceAOP();
+//    }
 }
 
 
